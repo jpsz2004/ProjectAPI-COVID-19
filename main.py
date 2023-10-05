@@ -66,7 +66,7 @@ def main():
 
         # Mostrar los datos en una ventana emergente
         display_data(data)
-        print("Datos obtenidos correctamente.", data)
+        print("Datos obtenidos correctamente.\n", data)
     else:
         print("No se pudo obtener datos para el departamento ingresado.")
 
