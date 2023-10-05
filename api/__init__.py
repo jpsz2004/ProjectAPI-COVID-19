@@ -16,8 +16,12 @@ def generate_sample_data(departamento, n):
         print(f"-------------------------------------------------------------------------------------\n!!!!!!!!!!!!!!!ADVERTENCIA!!!!!!!!!!!!!!!!!!!!!!!!!!\nEl DataFrame solo tiene {len(departamento_data)} filas. No se pueden seleccionar {n} filas.\nSe mostrarán los {len(departamento_data)} datos disponibles.\n-------------------------------------------------------------------------------------")
         n = len(departamento_data)
     
-    sample_data = departamento_data.iloc[:n]
+    sample_data = departamento_data.iloc[:n].copy()
     
     sample_data.reset_index(drop=True, inplace=True)
+
+    #Imputar en la columna de pais_viajo_1_nom los valores nulos con Colombia
+    sample_data['pais_viajo_1_nom'].fillna('COLOMBIA', inplace=True)
+
     
     return sample_data
